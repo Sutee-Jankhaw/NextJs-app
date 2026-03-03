@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 export default function Dashboard() {
   const router = useRouter()
   const [points, setPoints] = useState(0)
+  const [cart, setCart] = useState<{ id: number; name: string; point:number; price: number }[]>([])
 
   const handleLogout = () => {
     router.push("/login")
@@ -15,7 +16,6 @@ export default function Dashboard() {
     { id: 3, name: "เห็ดเข็มทองพันเบคอน",point:2, price: 20},
     { id:4, name: "เบคอนพันไส้กรอก",point:2, price: 25}
   ]
-  const [cart, setCart] = useState<{ id: number; name: string; point:number; price: number }[]>([])
 
   const getQuantity = (productId: number) => {
     return cart.filter(item => item.id === productId).length
