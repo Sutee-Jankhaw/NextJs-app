@@ -24,7 +24,7 @@ export default function Dashboard() {
   const addToCart = (product: { id: number; name: string; point:number; price: number }) => {
     setCart([...cart, product])
   }
-  const deleteFromCart = (productId: number) => {
+  const removeFromCart = (productId: number) => {
     const index = cart.findIndex(item => item.id === productId)
 
     if (index !== -1) {
@@ -89,7 +89,7 @@ export default function Dashboard() {
                 Add to Cart
               </button>
               <button
-                onClick={() => deleteFromCart(product.id)}
+                onClick={() => removeFromCart(product.id)}
                 className="bg-gray-300 text-black px-3 py-1 rounded w-full"
               >
                 Remove
